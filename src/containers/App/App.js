@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import { ConnectedRouter } from 'connected-react-router';
-import { Switch, Route } from 'react-router-dom';
+import Routes from '../../routes';
 
 export default (props) => (
     <ConnectedRouter history={props.history}>
@@ -10,11 +10,7 @@ export default (props) => (
                 <title>dear holic</title>
                 <meta name="description" content="A place to put your floof" />
             </Helmet>
-            <Switch>
-                <Route exact path="/" component={() => (<div>HOME</div>)} />
-                <Route path="/entry" component={() => (<div>ENTRY</div>)} />
-                <Route component={() => <div>NOT FOUND</div>} />
-            </Switch>
+            <Routes />
         </div>
     </ConnectedRouter>
 );
