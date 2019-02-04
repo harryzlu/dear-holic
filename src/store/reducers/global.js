@@ -41,7 +41,7 @@ function globalReducer(state = initialState, action) {
             error: action.error,
             loading: false,
         };
-    case types.CHANGE_VIEW:
+    case CHANGE_VIEW:
         return {
             ...state,
             view: action.view,
