@@ -1,0 +1,16 @@
+.entry-item {
+    text-align: center;
+    width: 20%;
+    box-sizing: border-box;
+    padding: 10px;
+    padding-top: 160px;
+    overflow-x: hidden;
+    position: relative;
+    img {
+        height: 150px;
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
