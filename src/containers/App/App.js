@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { ConnectedRouter } from 'connected-react-router';
 import Routes from '../../routes';
+import './styles.scss';
 
 export default (props) => (
     <ConnectedRouter history={props.history}>

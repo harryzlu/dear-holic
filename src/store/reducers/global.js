@@ -16,32 +16,32 @@ import types from '../actions/types';
 const initialState = {
     loading: false,
     error: false,
-    entries: [],
+    items: [],
     view: 'wardrobe',
 };
 
 function globalReducer(state = initialState, action) {
     switch (action.type) {
-    case types.LOAD_ENTRIES:
+    case types.LOAD_ITEMS:
         return {
             ...state,
             loading: true,
             error: false,
-            entries: [],
+            items: [],
         };
-    case types.LOAD_ENTRIES_SUCCESS:
+    case types.LOAD_ITEMS_SUCCESS:
         return {
             ...state,
-            entries: action.entries,
+            items: action.items,
             loading: false,
         };
-    case types.LOAD_ENTRIES_ERROR:
+    case types.LOAD_ITEMS_ERROR:
         return {
             ...state,
             error: action.error,
             loading: false,
         };
-    case CHANGE_VIEW:
+    case types.CHANGE_VIEW:
         return {
             ...state,
             view: action.view,

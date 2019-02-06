@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import ItemList from 'components/ItemList';
+import ItemList from '../../components/ItemList';
 import _ from 'lodash';
-// import './styles.scss';
+import './styles.scss';
 
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 

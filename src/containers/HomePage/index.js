@@ -1,25 +1,22 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
-import injectReducer from 'utils/injectReducer';
-import injectSaga from 'utils/injectSaga';
 import {
     makeSelectLoading,
     makeSelectError,
     makeSelectItemsView,
     makeSelectView
-} from 'containers/App/selectors';
+} from '../../store/selectors';
 import {
-    loadItems,
+    loadItemsData,
     changeView
-} from '../App/actions';
-import reducer from './reducer';
+} from '../../store/actions';
 import HomePage from './HomePage';
 
 const mapDispatchToProps = (dispatch) => ({
     loadItemsData: (evt) => {
         if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-        dispatch(loadItems());
+        dispatch(loadItemsData());
     },
     changeItemsView: (view) => {
         dispatch(changeView(view));
@@ -38,12 +35,7 @@ const withConnect = connect(
     mapDispatchToProps
 );
 
-const withReducer = injectReducer({ key: 'home', reducer });
-const withSaga = injectSaga({ key: 'home', saga });
-
 export default compose(
-    withReducer,
-    withSaga,
     withConnect
 )(HomePage);
 export { mapDispatchToProps };

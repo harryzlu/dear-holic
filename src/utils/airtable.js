@@ -6,7 +6,7 @@ const base = new Airtable({ apiKey: process.env.API_KEY }).base(
 
 export function getItems() {
     const sort = [{
-        field: 'DateAcquired',
+        field: 'DatePurchased',
         direction: 'desc',
     }];
     let itemsArr = [];
