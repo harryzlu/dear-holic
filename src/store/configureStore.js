@@ -7,9 +7,6 @@ import thunk from 'redux-thunk';
 export const history = createBrowserHistory();
 
 export default function configureStore(initialState = {}) {
-    // Create the store with two middlewares
-    // 1. sagaMiddleware: Makes redux-sagas work
-    // 2. routerMiddleware: Syncs the location/URL path to the state
     const middlewares = [
         thunk,
         routerMiddleware(history),
@@ -38,15 +35,6 @@ export default function configureStore(initialState = {}) {
         initialState,
         composeEnhancers(...enhancers)
     );
-
-    // Make reducers hot reloadable, see http://mxs.is/googmo
-    /* istanbul ignore next */
-    if (module.hot) {
-        module.hot.accept('./reducers', () => {
-        store.replaceReducer(createReducer(store.injectedReducers));
-        store.dispatch({ type: '@@REDUCER_INJECTED' });
-        });
-    }
 
     return store;
 }
