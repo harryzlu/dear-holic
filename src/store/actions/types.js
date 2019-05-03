@@ -1,12 +1,8 @@
-const CHANGE_VIEW = "CHANGE_VIEW";
+import keyMirror from 'keymirror';
 
-const LOAD_ITEMS = "LOAD_ITEMS";
-const LOAD_ITEMS_SUCCESS = "LOAD_ITEMS_SUCCESS";
-const LOAD_ITEMS_FAIL = "LOAD_ITEMS_FAIL";
-
-export default {
-    CHANGE_VIEW,
-    LOAD_ITEMS,
-    LOAD_ITEMS_SUCCESS,
-    LOAD_ITEMS_FAIL
-};
+export default keyMirror({
+    CHANGE_VIEW: null,
+    LOAD_ITEMS: null,
+    LOAD_ITEMS_SUCCESS: null,
+    LOAD_ITEMS_FAIL: null
+});
