@@ -21,13 +21,6 @@ export function itemsLoadingError(error) {
     };
 }
 
-export function changeView(view) {
-    return {
-        type: types.CHANGE_VIEW,
-        view,
-    };
-}
-
 export function loadItemsData() {
     return (dispatch) => {
         dispatch(loadItems());

@@ -1,19 +1,17 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import HomePage from './HomePage';
+import ItemModal from './ItemModal';
 
-import { changeView } from '../../store/actions/view';
-import { getCurrentView } from '../../store/selectors/view';
+import { getCurrentItem } from '../../store/selectors/currentItem';
+import { clearItemView } from '../../store/actions/currentItem';
 
 const mapDispatchToProps = (dispatch) => ({
-    changeItemsView: (view) => {
-        dispatch(changeView(view));
-    }
+    clearItemView: () => { dispatch(clearItemView()); }
 });
 
 const mapStateToProps = (state) => ({
-    view: getCurrentView(state),
+    currentItem: getCurrentItem(state)
 });
 
 const withConnect = connect(
@@ -23,4 +21,4 @@ const withConnect = connect(
 
 export default compose(
     withConnect
-)(HomePage);
+)(ItemModal);

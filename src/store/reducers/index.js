@@ -5,7 +5,9 @@
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
 
-import globalReducer from './global';
+import viewReducer from './view';
+import itemsReducer from './items';
+import currentItemReducer from './currentItem';
 
 /**
  * Creates the main reducer with the dynamically injected ones
@@ -13,7 +15,9 @@ import globalReducer from './global';
 export default function createReducer(history, injectedReducers) {
     return combineReducers({
         router: connectRouter(history),
-        global: globalReducer,
+        view: viewReducer,
+        currentItem: currentItemReducer,
+        items: itemsReducer,
         ...injectedReducers,
     });
 }

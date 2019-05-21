@@ -4,14 +4,25 @@
  * Renders a list of items
  */
 
-import React from 'react';
+import React, { Component } from 'react';
 import './styles.scss';
-import EntryItem from '../EntryItem';
+import EntryItem from './EntryItem';
 
-export default (props) => (
-    <div className="item-list">
-        {props.items.map((item) => (
-            <EntryItem key={item.id} {...item.fields} />
-        ))}
-    </div>
-);
+export default class ItemList extends Component {
+    componentDidMount() {
+        this.props.loadItemsData();
+    }
+
+    render() {
+        return (
+            <div className="item-list">
+                {this.props.items.map((item) => (
+                    <EntryItem
+                        key={item.id}
+                        onClick={(e) => this.props.viewItem(item, e)}
+                        {...item.fields} />
+                ))}
+            </div>
+        )
+    }
+};

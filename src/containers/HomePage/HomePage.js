@@ -2,21 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import ItemList from '../../components/ItemList';
-import _ from 'lodash';
 import './styles.scss';
+import ItemModal from '../../components/ItemModal';
 
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
-
-    componentDidMount() {
-        this.props.loadItemsData();
-    }
-
     render() {
         const {
-            loading,
-            error,
             view,
-            items,
             changeItemsView,
         } = this.props;
 
@@ -49,8 +41,9 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
                                 >{viewType}</button>
                             ))}
                         </div>
-                        <ItemList items={items} />
+                        <ItemList/>
                     </section>
+                    <ItemModal></ItemModal>
                 </div>
             </div>
         );
@@ -58,12 +51,5 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
 }
 
 HomePage.propTypes = {
-    loading: PropTypes.bool,
-    error: PropTypes.oneOfType([
-        PropTypes.object,
-        PropTypes.bool,
-    ]),
-    items: PropTypes.array,
-    loadItemsData: PropTypes.func,
     changeItemsView: PropTypes.func,
 };
